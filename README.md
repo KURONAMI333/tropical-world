@@ -1,33 +1,33 @@
-# Deep Sea World (DSW)
+# Deep Sea World
 
-> Submerged overworld. Y -50..0 playable seafloor, vanilla ores compressed into seabed crust, oceanic structures elevated to core content.
+> Overworld becomes a fully submerged ocean. Y -50..0 is the playable seafloor, vanilla ores compress into the seabed crust, oceanic structures become the world's core content.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Modrinth](https://img.shields.io/badge/Modrinth-deep-sea-world-00AF5C)](https://modrinth.com/mod/deep-sea-world)
-[![CurseForge](https://img.shields.io/badge/CurseForge-deep-sea-world-F16436)](https://www.curseforge.com/minecraft/mc-mods/deep-sea-world)
+[![NeoForge 1.21.1](https://img.shields.io/badge/NeoForge-1.21.1-orange.svg)](https://neoforged.net)
+[![Depends on Isekai API](https://img.shields.io/badge/Depends-Isekai%20API-9333ea)](https://github.com/KURONAMI333/isekai-api)
 
 ---
 
-## Supported Loaders / Versions
+## Concept
 
-| Minecraft | NeoForge | Forge | Fabric |
-|---|:---:|:---:|:---:|
-| 1.21.1 | TBD | TBD | TBD |
-| 1.20.1 |  —  | TBD | TBD |
+The whole overworld is underwater. Less than 5% of the surface peeks above sea level — small rare islands that become precious. Ocean monuments, shipwrecks, and coral reefs are no longer side content; they're the main attraction.
 
-(TBD: 実装後に更新)
+Pairs naturally with diving / underwater-breathing mods (Aquatic Survival, Improved Backpacks, etc.). Note: without one of those mods, survival is rough by design.
 
----
+## How it works
 
-## Why?
+Deep Sea World is built on **[Isekai API](https://github.com/KURONAMI333/isekai-api)**, a neutral universal worldgen library.
 
-(目的、解決する問題を 2-3 行で)
+The library has no concept of "submerged world" — Deep Sea World composes the `mask_y_range`, `step`, and rule-adaptation primitives that Isekai API offers, into a submerged worldshape. Any other modder can do the same with the same primitives.
 
-## Installation
+## Status
 
-1. ローダー導入
-2. 依存 MOD 導入（あれば）
-3. `deep-sea-world-X.Y.Z-{loader}-{mc}.jar` を `mods/` に配置
+**v0.1**: skeleton. `WorldshapeDescriptor` declaration + density composition land with Isekai API v0.2.
+
+## Dependencies
+
+- NeoForge 1.21.1
+- [Isekai API](https://github.com/KURONAMI333/isekai-api) (required)
 
 ## License
 
