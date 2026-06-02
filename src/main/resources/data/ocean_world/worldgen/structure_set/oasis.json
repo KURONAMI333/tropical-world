@@ -1,0 +1,11 @@
+{
+  "structures": [
+    { "structure": "ocean_world:oasis", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 70032417,
+    "spacing": 44,
+    "separation": 18
+  }
+}

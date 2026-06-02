@@ -1,0 +1,38 @@
+{
+  "type": "isekai_api:apply_worldshape",
+  "worldshape": {
+    "dimension": "minecraft:overworld",
+    "playable_range": {
+      "min_y": 0,
+      "max_y": 256,
+      "distribution": "uniform"
+    },
+    "surface_anchor": {
+      "type": "isekai:world_surface"
+    },
+    "ore_strategy": {
+      "type": "isekai:identity"
+    },
+    "structure_strategy": {
+      "type": "isekai:identity"
+    },
+    "mob_spawn_strategy": {
+      "type": "isekai:identity"
+    },
+    "default_structure_predicate": {
+      "type": "isekai:y_in_range",
+      "min": -64,
+      "max": 320
+    },
+    "applies_to": [
+      "minecraft:warm_ocean",
+      "minecraft:lukewarm_ocean"
+    ],
+    "atmosphere": {
+      "water_color": 1876935,
+      "water_fog_color": 940666,
+      "fog_color": 12116720
+    },
+    "priority": 100
+  }
+}

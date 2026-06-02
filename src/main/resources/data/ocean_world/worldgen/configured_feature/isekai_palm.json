@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "ignore_vines": true,
+    "decorators": [],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 1,
+      "lower_size": 0,
+      "upper_size": 1
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:jungle_log"
+      }
+    },
+    "trunk_placer": {
+      "type": "isekai_api:leaning",
+      "base_height": 6,
+      "height_rand_a": 2,
+      "height_rand_b": 1,
+      "min_height_for_leaves": 1,
+      "lean_length": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 2
+      },
+      "convert_ground": false,
+      "tip_crown_only": true
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:jungle_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "foliage_placer": {
+      "type": "isekai_api:fan",
+      "radius": 0,
+      "offset": 1,
+      "crown_radius": 2,
+      "hang": 1
+    }
+  }
+}
