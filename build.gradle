@@ -64,8 +64,8 @@ repositories {
 }
 
 dependencies {
-    // Isekai API consumer dependency (compile-time only; runtime wiring lands with runClient setup)
-    compileOnly files("../mod-029-isekai-api/build/libs/isekai_api-${isekai_api_version}.jar")
+    compileOnly  files("../mod-029-isekai-api/build/libs/isekai_api-${isekai_api_version}.jar")
+    localRuntime files("../mod-029-isekai-api/build/libs/isekai_api-${isekai_api_version}.jar")
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'

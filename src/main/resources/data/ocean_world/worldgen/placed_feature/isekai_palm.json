@@ -1,0 +1,30 @@
+{
+  "feature": "ocean_world:isekai_palm",
+  "placement": [
+    {
+      "type": "isekai_api:scatter",
+      "count": 2,
+      "radius": 8,
+      "min_spacing": 5
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
+    },
+    {
+      "type": "isekai_api:spatial_predicate",
+      "predicate": {
+        "type": "isekai:y_in_range",
+        "min": 64,
+        "max": 67
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

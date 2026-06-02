@@ -1,0 +1,11 @@
+{
+  "type": "isekai_api:grounded_template",
+  "biomes": "#ocean_world:has_structure/oasis",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "template": "ocean_world:oasis",
+  "clearance_above_fluid": 2,
+  "max_slope": 4,
+  "vertical_offset": -1
+}

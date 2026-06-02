@@ -1,6 +1,6 @@
 # Deep Sea World
 
-> Overworld becomes a fully submerged ocean. Y -50..0 is the playable seafloor, vanilla ores compress into the seabed crust, oceanic structures become the world's core content.
+> Overworld becomes a fully submerged ocean. Terrain is capped below sea level, oceanic structures (monuments, shipwrecks, ruins) become the world's main content. Vanilla ores compress into the seabed crust via [Isekai API](https://github.com/KURONAMI333/isekai-api).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![NeoForge 1.21.1](https://img.shields.io/badge/NeoForge-1.21.1-orange.svg)](https://neoforged.net)
@@ -10,29 +10,57 @@
 
 ## Concept
 
-The whole overworld is underwater. Less than 5% of the surface peeks above sea level — small rare islands that become precious. Ocean monuments, shipwrecks, and coral reefs are no longer side content; they're the main attraction.
+The overworld is underwater. Less than 5% of the surface peeks above sea level. Ocean monuments, shipwrecks, and coral reefs are no longer side content — they're the world's main attraction.
 
-Pairs naturally with diving / underwater-breathing mods (Aquatic Survival, Improved Backpacks, etc.). Note: without one of those mods, survival is rough by design.
+Pairs naturally with diving / breathing mods (Aquatic Survival, etc.). Survival without one of those is intentionally rough.
 
 ## How it works
 
-Deep Sea World is built on **[Isekai API](https://github.com/KURONAMI333/isekai-api)**, a neutral universal worldgen library.
+Datapack-only via three Isekai-driven JSON files:
 
-The library has no concept of "submerged world" — Deep Sea World composes the `mask_y_range`, `step`, and rule-adaptation primitives that Isekai API offers, into a submerged worldshape. Any other modder can do the same with the same primitives.
+1. **`data/minecraft/worldgen/noise_settings/overworld.json`** — overlay wrapping vanilla `final_density` in `min(vanilla, mask_y_range(-64, 30, +1, -1))`. Terrain capped at Y=30 (below sea level Y=63); above Y=30 is forced to void (air→water once aquifers fill).
+2. **`data/deep_sea_world/neoforge/biome_modifier/apply_deep_sea.json`** — Isekai `apply_worldshape`:
+   - `playable_range` Y=-50..30 with `linear` ore strategy
+   - `surface_anchor: below_fluid` (water) — surface-relative features attach to seabed
+   - `default_structure_predicate` requires `y_in_range(-50,30)` AND `in_fluid(water)`
+   - ocean structures keep placement via `in_fluid` predicates; villages and ancient_city excluded entirely
+3. **`data/deep_sea_world/neoforge/structure_modifier/apply_deep_sea.json`** — clears biome filters for villages / ancient_city.
 
-## Status
+## Demonstrates
 
-**v0.1**: skeleton. `WorldshapeDescriptor` declaration + density composition land with Isekai API v0.2.
+- `isekai_api:mask_y_range` for hard Y cap
+- `isekai_api:in_fluid` predicate composition
+- `isekai:below_fluid` surface anchor
+- `isekai:linear` ore range remap
+
+## How to play
+
+1. Install [Isekai API](https://github.com/KURONAMI333/isekai-api) and Deep Sea World.
+2. Create a new world. You spawn underwater near a seabed peak.
+3. Find a shipwreck or ocean monument as your starting base. Bring breathing gear.
 
 ## Dependencies
 
 - NeoForge 1.21.1
-- [Isekai API](https://github.com/KURONAMI333/isekai-api) (required)
+- [Isekai API 1.0.0+](https://github.com/KURONAMI333/isekai-api)
+
+## Building
+
+```bash
+./gradlew build
+```
+
+Produces `build/libs/deep_sea_world-1.0.0.jar`.
+
+## Compatibility
+
+Conflicts with any mod overlaying `data/minecraft/worldgen/noise_settings/overworld.json`.
 
 ## License
 
-[MIT License](LICENSE) — modpack inclusion welcome, no credit required.
+[MIT License](LICENSE)
 
 ## Credits
 
 - Author: KURONAMI
+- Built on [Isekai API](https://github.com/KURONAMI333/isekai-api)
