@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0] — 2026-08-05
+
+Requires Isekai API 2.x. No world-generation change: `noise_settings` is
+untouched (this MOD's overworld document is already its own minified,
+non-vanilla shape, so there is nothing to delegate).
+
+### Changed
+- Worldshape and biome-source `"type"` ids use the canonical `isekai_api:`
+  prefix (the bare `isekai:` prefix is deprecated in Isekai API 2.x).
+- The build resolves Isekai API from its raw-URL maven repo, so this repo
+  builds without a sibling checkout.
+
 ## [1.0.0] — 2026-05-28
 
 First public release. Datapack-only fully-submerged overworld built on Isekai API.

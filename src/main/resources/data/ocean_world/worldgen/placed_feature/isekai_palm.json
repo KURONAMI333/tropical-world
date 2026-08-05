@@ -18,7 +18,7 @@
     {
       "type": "isekai_api:spatial_predicate",
       "predicate": {
-        "type": "isekai:y_in_range",
+        "type": "isekai_api:y_in_range",
         "min": 64,
         "max": 67
       }
