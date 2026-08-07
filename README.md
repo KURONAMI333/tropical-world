@@ -2,7 +2,7 @@
 
 > Overworld becomes a fully submerged ocean. Terrain is capped below sea level, oceanic structures (monuments, shipwrecks, ruins) become the world's main content. Vanilla ores compress into the seabed crust via [Isekai API](https://github.com/KURONAMI333/isekai-api).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](LICENSE)
 [![NeoForge 1.21.1](https://img.shields.io/badge/NeoForge-1.21.1-orange.svg)](https://neoforged.net)
 [![Depends on Isekai API](https://img.shields.io/badge/Depends-Isekai%20API-9333ea)](https://github.com/KURONAMI333/isekai-api)
 
@@ -58,7 +58,7 @@ Conflicts with any mod overlaying `data/minecraft/worldgen/noise_settings/overwo
 
 ## License
 
-[MIT License](LICENSE)
+[All Rights Reserved](LICENSE)
 
 ## Credits
 
