@@ -1,66 +1,26 @@
-# Deep Sea World
+# Tropical World
 
-> Overworld becomes a fully submerged ocean. Terrain is capped below sea level, oceanic structures (monuments, shipwrecks, ruins) become the world's main content. Vanilla ores compress into the seabed crust via [Isekai API](https://github.com/KURONAMI333/isekai-api).
+Tropical World replaces the overworld with a sunlit tropical sea, coral reefs, and scattered islands. It is built on Isekai API.
 
-[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](LICENSE)
-[![NeoForge 1.21.1](https://img.shields.io/badge/NeoForge-1.21.1-orange.svg)](https://neoforged.net)
-[![Depends on Isekai API](https://img.shields.io/badge/Depends-Isekai%20API-9333ea)](https://github.com/KURONAMI333/isekai-api)
+## Requirements
 
----
+- Minecraft 1.21.1 with NeoForge.
+- Isekai API 2.0.0 or newer, below 3.0.0, as required by the loader metadata.
 
-## Concept
+Create a new world after installing the JARs. Tropical World replaces overworld terrain generation and cannot be combined with another mod that also replaces the overworld generator.
 
-The overworld is underwater. Less than 5% of the surface peeks above sea level. Ocean monuments, shipwrecks, and coral reefs are no longer side content — they're the world's main attraction.
+## Build
 
-Pairs naturally with diving / breathing mods (Aquatic Survival, etc.). Survival without one of those is intentionally rough.
-
-## How it works
-
-Datapack-only via three Isekai-driven JSON files:
-
-1. **`data/minecraft/worldgen/noise_settings/overworld.json`** — overlay wrapping vanilla `final_density` in `min(vanilla, mask_y_range(-64, 30, +1, -1))`. Terrain capped at Y=30 (below sea level Y=63); above Y=30 is forced to void (air→water once aquifers fill).
-2. **`data/deep_sea_world/neoforge/biome_modifier/apply_deep_sea.json`** — Isekai `apply_worldshape`:
-   - `playable_range` Y=-50..30 with `linear` ore strategy
-   - `surface_anchor: below_fluid` (water) — surface-relative features attach to seabed
-   - `default_structure_predicate` requires `y_in_range(-50,30)` AND `in_fluid(water)`
-   - ocean structures keep placement via `in_fluid` predicates; villages and ancient_city excluded entirely
-3. **`data/deep_sea_world/neoforge/structure_modifier/apply_deep_sea.json`** — clears biome filters for villages / ancient_city.
-
-## Demonstrates
-
-- `isekai_api:mask_y_range` for hard Y cap
-- `isekai_api:in_fluid` predicate composition
-- `isekai:below_fluid` surface anchor
-- `isekai:linear` ore range remap
-
-## How to play
-
-1. Install [Isekai API](https://github.com/KURONAMI333/isekai-api) and Deep Sea World.
-2. Create a new world. You spawn underwater near a seabed peak.
-3. Find a shipwreck or ocean monument as your starting base. Bring breathing gear.
-
-## Dependencies
-
-- NeoForge 1.21.1
-- [Isekai API 1.0.0+](https://github.com/KURONAMI333/isekai-api)
-
-## Building
-
-```bash
-./gradlew build
-```
-
-Produces `build/libs/deep_sea_world-1.0.0.jar`.
-
-## Compatibility
-
-Conflicts with any mod overlaying `data/minecraft/worldgen/noise_settings/overworld.json`.
+Run `./gradlew build` with JDK 21. The artifact version comes from `gradle.properties`; choose a published JAR matching your Minecraft version and loader for play.
 
 ## License
 
-[All Rights Reserved](LICENSE)
+[All Rights Reserved](LICENSE). Modpack inclusion is allowed without permission or credit.
 
-## Credits
+## Downloads and support
 
-- Author: KURONAMI
-- Built on [Isekai API](https://github.com/KURONAMI333/isekai-api)
+Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/tropical-world) · [GitHub Releases](https://github.com/KURONAMI333/tropical-world/releases/tag/v1.0.0).
+
+For bugs and questions, comment on the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/tropical-world) or DM [@kuronami333 on X](https://x.com/kuronami333).
+
+[Source](https://github.com/KURONAMI333/tropical-world) · [License](LICENSE)
